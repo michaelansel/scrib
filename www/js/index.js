@@ -63,9 +63,9 @@ var showNote = function(icon) {
     console.log('showing a photo', icon.noteData);
     var img = document.createElement('img');
     img.src = icon.noteData;
-    img.setAttribute('style', 'z-index: 15;');
+    img.setAttribute('style', 'z-index: 15;margin-top:200px;');
     var cover = document.createElement('div');
-    cover.setAttribute('style', 'z-index: 14; position: absolute; left:0; right:0; top:0; bottom:0; width: 100%; height: 100%; opacity:0.9; background-color:black;');
+    cover.setAttribute('style', 'z-index: 14; position: absolute; left:0; right:0; top:0; bottom:0; width: 100%; height: 100%; opacity:0.9; background:rgb(0,0,0);background:rgba(0,0,0,0.9); text-align:center');
     cover.appendChild(img);
     document.body.appendChild(cover);
     cover.onclick = function() {
@@ -82,9 +82,9 @@ var showPhoto = function(icon) {
     console.log('showing a photo', icon.photoData);
     var img = document.createElement('img');
     img.src = icon.photoData;
-    img.setAttribute('style', 'z-index: 15;');
+    img.setAttribute('style', 'z-index: 15;margin-top:200px;');
     var cover = document.createElement('div');
-    cover.setAttribute('style', 'z-index: 14; position: absolute; left:0; right:0; top:0; bottom:0; width: 100%; height: 100%; opacity:0.9; background-color:black;');
+    cover.setAttribute('style', 'z-index: 14; position: absolute; left:0; right:0; top:0; bottom:0; width: 100%; height: 100%; background:rgb(0,0,0);background:rgba(0,0,0,0.9); text-align:center');
     cover.appendChild(img);
     document.body.appendChild(cover);
     cover.onclick = function() {
