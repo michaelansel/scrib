@@ -158,9 +158,16 @@ var app = {
         
         var nl = document.getElementsByClassName('sidebar-button')
         var arr = []; for(var i = nl.length; i--; arr.unshift(nl[i]));
+        var the_app = this;
         arr.forEach(function(val,idx) {
-            val.onclick = this.setActiveCanvas.bind(this, idx);
-        }, this);
+            val.onclick = function() {
+                arr.forEach(function(val) {
+                    val.classList.remove('selected');
+                });
+                the_app.setActiveCanvas(idx);
+                val.classList.add('selected');
+            };
+        });
     },
     // Bind Event Listeners
     //
