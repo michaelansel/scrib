@@ -25,7 +25,7 @@ var getMousePos = function(canvas, evt) {
     };
   }
 var updateIcon = function(icon, p) {
-    icon.setAttribute('style', 'position: absolute; left: '+(p.x-10).toString()+'px; top: '+(p.y-10).toString()+'px; width: 20px; height: 20px;');
+    icon.setAttribute('style', 'position: absolute; left: '+(p.x-45).toString()+'px; top: '+(p.y-45).toString()+'px; width: 90px; height: 90px;');
 };
 var adjustMouse = function(icon) {
     var el = icon.parentElement;
@@ -55,16 +55,26 @@ var adjustMouse = function(icon) {
 };
 
 var openNoteEditor = function(icon) {
-    icon.noteData = 'some data';
+    icon.noteData = 'img/sample_text.png';
     adjustMouse(icon);
     icon.onclick = showNote.bind(null, icon);
 }
 var showNote = function(icon) {
-    alert(icon.noteData);
+    console.log('showing a photo', icon.noteData);
+    var img = document.createElement('img');
+    img.src = icon.noteData;
+    img.setAttribute('style', 'z-index: 15;');
+    var cover = document.createElement('div');
+    cover.setAttribute('style', 'z-index: 14; position: absolute; left:0; right:0; top:0; bottom:0; width: 100%; height: 100%; opacity:0.9; background-color:black;');
+    cover.appendChild(img);
+    document.body.appendChild(cover);
+    cover.onclick = function() {
+        document.body.removeChild(cover);
+    }
 }
 
 var openPhotoPicker = function(icon) {
-    icon.photoData = 'img/photo1.png';
+    icon.photoData = 'img/sample_room.png';
     adjustMouse(icon);
     icon.onclick = showPhoto.bind(null, icon);
 }
@@ -213,10 +223,10 @@ var app = {
         }
         switch(id) {
             case 0:
-                iconMouse(canvas, 'img/logo.png', openPhotoPicker);
+                iconMouse(canvas, 'img/btn_pictureonmap2.png', openPhotoPicker);
                 break;
             case 1:
-                iconMouse(canvas, 'img/logo.png', openNoteEditor);
+                iconMouse(canvas, 'img/btn_noteonmap.png', openNoteEditor);
                 break;
 //            case 2:
 //                rulerMouse(canvas);
@@ -229,3 +239,32 @@ var app = {
         }
     }
 };
+
+(function() {
+
+function show_picture_options(){
+    $('.selector_pictures').fadeIn();
+    $(".selector_notes").hide();
+    $(".selector_ruler").hide();
+}
+
+function show_notes_options(){
+    $(".selector_pictures").hide();
+    $(".selector_notes").fadeIn();
+    $(".selector_ruler").hide();
+}
+
+function show_rulers_options(){
+    $('.selector_pictures').hide();
+    $('.selector_notes').hide();
+    $('.selector_ruler').fadeIn();
+}
+
+$(function() {
+    $('.pictures').click(show_picture_options);
+    $('.notes').click(show_notes_options);
+    $('.rulers').click(show_rulers_options);
+    $('.drawings').click(show_rulers_options);
+});
+
+})();

@@ -24,27 +24,65 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <title>sCRIB</title>
     </head>
     <body>
         <div class="app">
-            <div class="titlebar">
-                <div class="appname">sCRIB</div>
-                <div class="location">Cypress Point Drive Apt 254</div>
-            </div>
-            <div class="sidebar">
-                <!-- <img src="img/sidebar_default.png"> -->
-                <div class="sidebar-button pictures">Pictures</div>
-                <div class="sidebar-button notes">Notes</div>
-                <div class="sidebar-button rulers">Rulers</div>
-                <div class="sidebar-button drawings">Free Edit</div>
-            </div>
-            <div class="content">
-                <div class="background"><img src="img/img_floorplan.png"></div>
-                <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
-                <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
-                <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
-                <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
+            <div class="device_wrapper">
+                <div class="titlebar">
+                    <div class="appname">sCRIB</div>
+                    <div class="location">Cypress Point Drive Apt 254</div>
+                </div>
+                <div class="sidebar">
+                    <div class="sidebar-button pictures">
+                        <img src="img/ico_picture.png"/>
+                        <div>Pictures</div>
+                    </div>
+                    <div class="sidebar-button notes">
+                        <img src="img/ico_notes.png"/>
+                        <div>Notes</div>
+                    </div>
+                    <div class="sidebar-button rulers">
+                        <img src="img/ico_ruler.png"/>
+                        <div>Rulers</div>
+                    </div>
+                    <div class="sidebar-button drawings">
+                        <img src="img/ico_edit.png"/>
+                        <div>Free Edit</div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="background"><img src="img/img_floorplan.png"></div>
+                    <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
+                    <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
+                    <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
+                    <div class="drawing"><canvas class="drawing-canvas"></canvas></div>
+                </div>
+                <div class="bottombar">
+                    <div class="bottombar-button pen selector_ruler">
+                        <img src="img/ico_pen.png"/>
+                    </div>
+                    <div class="bottombar-button eraser selector_ruler">
+                        <img src="img/ico_eraser.png"/>
+                    </div>
+                    <div class="bottombar-button editnotes selector_notes">
+                        <img src="img/ico_editsmall.png"/>
+                        <div>Edit Note</div>
+                    </div>
+                    <div class="bottombar-button newnote selector_notes">
+                        <img src="img/ico_newnote.png"/>
+                        <div>New Note</div>
+                    </div>
+                    <div class="bottombar-button editpicture selector_pictures">
+                        <img src="img/ico_editsmall.png"/>
+                        <div>Edit Pictures</div>
+                    </div>
+                    <div class="bottombar-button newpicture selector_pictures">
+                        <img src="img/ico_newpicture.png"/>
+                        <div>New Picture</div>
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript" src="phonegap.js"></script>
